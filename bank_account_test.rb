@@ -19,5 +19,11 @@ class BankAccountTest < MiniTest::Unit::TestCase
     account.withdraw(600)
     assert_equal 100, account.balance
   end
+
+  def test_transfer_to 
+    account = BankAccount.new(500) 
+    account.transfer_to(another_account = BankAccount.new(500), 300)
+    assert_equal 800, another_account.balance
+  end
   
 end
